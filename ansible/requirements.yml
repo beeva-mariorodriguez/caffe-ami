@@ -1,9 +1,0 @@
-- name: cuda
-  src: https://github.com/beeva-mariorodriguez/ansible-cuda
-
-- name: opencv
-  src: https://github.com/beeva-mariorodriguez/ansible-opencv
-
-- name: caffe
-  src: https://github.com/beeva-mariorodriguez/ansible-caffe
-

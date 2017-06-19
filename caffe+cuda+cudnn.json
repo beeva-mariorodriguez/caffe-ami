@@ -1,14 +1,14 @@
 {
     "variables":{
-        "version": "0.2",
+        "version": "0.5",
         "experiment": "caffe"
     },
     "builders":[
         {
             "type": "amazon-ebs",
-            "region":"eu-west-1",
-            "source_ami":"ami-a8d2d7ce",
-            "instance_type": "p2.xlarge",
+            "region":"us-east-1",
+            "source_ami":"ami-80861296",
+            "instance_type": "m3.medium",
             "ami_name": "ubuntu-beevalabs-{{ user `experiment` }}-{{ user `version` }}",
             "ssh_username": "ubuntu",
             "tags":{
@@ -22,12 +22,17 @@
         {
             "type":"shell",
             "inline":[
-                "sudo apt install -y python"
+                "#!/bin/bash -e",
+                "sudo apt-get update",
+                "sudo apt install -y nvidia-367",
+                "wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh",
+                "chmod +x Miniconda3-latest-Linux-x86_64.sh",
+                "./Miniconda3-latest-Linux-x86_64.sh -b",
+                "sudo apt install -y python",
+                "/home/ubuntu/miniconda3/bin/conda create -y -n caffe",
+                "/home/ubuntu/miniconda3/bin/conda install -y caffe-gpu -n caffe",
+                "echo 'source miniconda3/bin/activate caffe' >> /home/ubuntu/.profile"
             ]
-        },
-        {
-            "type":"ansible",
-            "playbook_file":"./ansible/playbook.yml"
         }
     ]
 }

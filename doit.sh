@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# ansible roles
-ansible-galaxy install -r ansible/requirements.yml -p ansible/roles
-
 # aws credentials
 if [ -z ${AWS_ROLE_ARN} ]
 then

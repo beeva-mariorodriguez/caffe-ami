@@ -5,7 +5,7 @@ create an ubuntu based AMI image with caffe + cuda + cudnn
 
 ## requirements
 
-* ansible
+* [packer](https://packer.io)
 * AWS CLI, with credentials configured
 
 ## create AMI automagically
@@ -35,16 +35,5 @@ export AWS_SECRET_ACCESS_KEY="SecretAccessKey"
 3. run packer
 ```sh
 packer build caffe+cuda+cudnn.json
-```
-
-### standalone ansible
-1. manually create instance (ubuntu)
-2. login to instance and install python
-```sh
-apt install python
-```
-3. run ansible
-```sh
-ansible-playbook ansible/playbook.yml
 ```
 
