@@ -5,6 +5,7 @@ create an ubuntu based AMI image with caffe + cuda + cudnn
 
 ## requirements
 
+* [packer](https://packer.io)
 * ansible
 * AWS CLI, with credentials configured
 

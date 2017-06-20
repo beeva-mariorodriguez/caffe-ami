@@ -1,14 +1,14 @@
 {
     "variables":{
-        "version": "0.2",
+        "version": "0.2.1",
         "experiment": "caffe"
     },
     "builders":[
         {
             "type": "amazon-ebs",
-            "region":"eu-west-1",
-            "source_ami":"ami-a8d2d7ce",
-            "instance_type": "p2.xlarge",
+            "region":"us-east-1",
+            "source_ami":"ami-80861296",
+            "instance_type": "m3.medium",
             "ami_name": "ubuntu-beevalabs-{{ user `experiment` }}-{{ user `version` }}",
             "ssh_username": "ubuntu",
             "tags":{
